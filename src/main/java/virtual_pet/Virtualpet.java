@@ -20,13 +20,13 @@ public class Virtualpet {
      System.out.println("2.Water " + petName);
      System.out.println("3.Play with " + petName);
      System.out.println("0.exit");
-     int userInput = input.nextInt();
+    int userInput = input.nextInt();
      if (userInput == 1){
-        return " You fed " + petName + " food" + " hunger is now " +  ( hunger -3);
+        return " You fed " + petName + " food" + " hunger is now " +  ( hunger -3) ;
      } else if (userInput == 2) {
          return " You gave " + petName + " water" + " Thirst is now " +  (thirst -3) ;
      } else if (userInput== 3) {
-         return "You played with " +  petName +   " boredom is now " +  (bordom -3) ;
+         return "You played with " +  petName +   " boredom is now " +  (bordom -3)  ;
      } else if (userInput == 0) {
         System.exit(0);
      }
@@ -39,50 +39,44 @@ public class Virtualpet {
     }
 
     public String petHunger (){
-        hunger = rand.nextInt(5, 10);
+        hunger = rand.nextInt(1, 10);
+        if (hunger <= 4){
+            System.out.println(petName + " is very hungary please give " +petName + " food before they starve!");
+        } else if (hunger >= 5) {
+            System.out.println(petName + " is very full please dont feed " + petName);
+        }
         return  "Hunger: " + hunger;
     }
 
 
     public String petThirst (){
-       thirst = rand.nextInt(5, 10);
+       thirst = rand.nextInt(3, 10);
+        if (thirst <= 4){
+            System.out.println(petName + " is thirsty please give " +petName + " a drink!");
+        } else if (thirst >= 5) {
+            System.out.println(petName + " is quenched " + petName + " does not need a drink anymore");
+        }
         return  "Thirst: " + thirst;
     }
     public String petBordom (){
-        bordom = rand.nextInt(5, 10);
-        return  "Bordom: " + thirst;
+        bordom = rand.nextInt(3, 10);
+        if (bordom <= 4){
+            System.out.println(petName + " is having fun continue playing with " +petName);
+        } else if (bordom >= 5) {
+            System.out.println(petName + " is getting bored please play with " + petName);
+        }
+        return  "Bordom: " + bordom;
+
     }
-    public boolean getTick(){
-     int userInput = input.nextInt();
-     if (userInput == 1){
+    public String getTick(){
+     if (bordom < 4  || hunger < 3){
          thirst++;
-     } else if (userInput == 2) {
+     } else if (hunger>=5 || thirst>=5) {
          bordom++;
-     } else if (userInput == 3) {
+     }else if (bordom > 5 || thirst < 3) {
          hunger++;
      }
-        this.hunger++;
-     this.thirst++;
-     this.bordom++;
-        return false;
+       return getActions();
     }
 
-    /*  public String petWaste (){
-        waste = rand.nextInt(0, 10);
-        return "Waste: " + waste;
-    }*/
-
-    /*public String feedIt (){
-        return "1. Feed " + petName;
-    }
-    public String waterIt (){
-        return "2. Water " + petName;
-    }
-
-public String putToSleep(){
-    return "4. Put " + petName + " to sleep";
-    }
-    public String doNothing(){
-        return "5. Do nothing";
-    }*/
 }

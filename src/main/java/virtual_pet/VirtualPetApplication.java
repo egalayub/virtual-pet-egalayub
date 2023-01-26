@@ -19,7 +19,7 @@ List<Virtualpet> myPet = new ArrayList<>();
 int select = 1;
 while (true){
     System.out.println(a.getActions());
-    //System.out.println(a.getTick());
+    System.out.println(a.getTick());
 
 }
 

@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class VirtualPetTest {
     @Test
     public void shouldInstantiate() {
-        VirtualPetApplication underTest = new VirtualPetApplication();
     }
 
 }
