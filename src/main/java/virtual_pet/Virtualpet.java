@@ -7,7 +7,7 @@ public class Virtualpet {
     public Random rand = new Random();
     public String petName;
     public int hunger;
-    public int thirst ;
+    public int thirst;
     public int bordom;
     public String actions;
     public Scanner input = new Scanner (System.in);
@@ -33,7 +33,8 @@ public class Virtualpet {
      return "Give a input from the list";
  }
 
-    public Virtualpet( String petName ){
+    public  Virtualpet(String petName ){
+
         this.petName = petName;
 
     }
@@ -50,7 +51,7 @@ public class Virtualpet {
 
 
     public String petThirst (){
-       thirst = rand.nextInt(3, 10);
+        thirst = rand.nextInt(1, 10);
         if (thirst <= 4){
             System.out.println(petName + " is thirsty please give " +petName + " a drink!");
         } else if (thirst >= 5) {
@@ -59,7 +60,7 @@ public class Virtualpet {
         return  "Thirst: " + thirst;
     }
     public String petBordom (){
-        bordom = rand.nextInt(3, 10);
+        bordom = rand.nextInt(1, 10);
         if (bordom <= 4){
             System.out.println(petName + " is having fun continue playing with " +petName);
         } else if (bordom >= 5) {
