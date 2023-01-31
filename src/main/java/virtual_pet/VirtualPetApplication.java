@@ -16,7 +16,7 @@ public class VirtualPetApplication {
         System.out.println(b.adoptPetFromShelter());
         a.gameMenu();
         while (true) {
-            System.out.println( a.getActions());
+            System.out.println(a.getActions());
 
         }
 
