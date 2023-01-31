@@ -5,7 +5,6 @@ import java.util.*;
 public class VirtualPetApplication {
 
 
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to the Virtual Pet Shelter!");
@@ -15,10 +14,11 @@ public class VirtualPetApplication {
         System.out.println(b.petsUpForAdoption);
         System.out.println(b.getPetStats());
         System.out.println(b.adoptPetFromShelter());
-while (true){
+        a.gameMenu();
+        while (true) {
+            System.out.println( a.getActions());
 
-    System.out.println(a.getActions());
-}
+        }
 
 
     }
