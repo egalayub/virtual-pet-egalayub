@@ -6,38 +6,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class VirtualpetTest {
 
-   /* public void testUserInputForPetName() {
-        Virtualpet userInput = new Virtualpet("Dog");
-        String actions = userInput.petName;
-        assertEquals("Dog", actions);
-    }
+  @Test
+ void getPetName(){
+    assertEquals("Scooby Doo",new Virtualpet("Scooby Doo",32,21,32).getPetName());
+  }
 
     @Test
-    public void hungerEquals() {
-        Virtualpet userInput = new Virtualpet("");
-        String a = userInput.petHunger();
-        assertEquals(userInput.petHunger(), a);
+    void getHunger() {
+      assertEquals(50,new Virtualpet("Scooby Doo",50,34,43).getHunger());
+    }
+    @Test
+    void getThirst() {
+        assertEquals(34,new Virtualpet("Scooby Doo",12,34,21).getThirst());
+    }
+    @Test
+    void getBoredom() {
+        assertEquals(25 ,new Virtualpet("Scooby Doo",46,12,25).getBordom());
     }
 
-    @Test
-    public void thirstEquals() {
-        Virtualpet userInput = new Virtualpet("");
-        String b = userInput.petThirst();
-        assertEquals(userInput.petThirst(), b);
-    }
-
-    @Test
-    public void bordomEquals() {
-        Virtualpet userInput = new Virtualpet("");
-        String b = userInput.petBordom();
-        assertEquals(userInput.petBordom(), b);
-    }
-
-    @Test
-    public void doesTickwork() {
-        Virtualpet userInput = new Virtualpet("");
-        int b = userInput.getTick();
-        assertEquals(userInput.getTick(), b);
-
-    }*/
 }

@@ -1,82 +1,75 @@
 package virtual_pet;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.security.PublicKey;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class VirtualPetShelter {
-    List<String> petsUpForAdoption = new ArrayList<>();
-    Scanner input = new Scanner(System.in);
+    public HashMap<String, Virtualpet> petsInShelter = new HashMap<>();
 
 
-    public VirtualPetShelter() {
-
-        petsUpForAdoption.add("1.Garfield The Cat");
-        petsUpForAdoption.add("2.Scooby doo The Dog");
-        petsUpForAdoption.add("3.Nemo The Fish");
-
+    public Collection<Virtualpet> getAllPets() {
+        return petsInShelter.values();
 
     }
 
-    public String getPetStats() {
-        Virtualpet a = new Virtualpet();
-
-        return petsUpForAdoption.get(0) + " " + a.petHunger() + " " + a.petBoredom() + " " + a.petThirst() + " " + petsUpForAdoption.get(1) + " " + a.petHunger() + " " + a.petBoredom() + " " + a.petThirst() + " " + petsUpForAdoption.get(2) + " " + a.petHunger() + " " + a.petBoredom() + " " + a.petThirst();
+    public void adoptPet(Virtualpet a) {
+        petsInShelter.put(a.getPetName(), a);
 
     }
-
-    public void getPetFromShelterActions() {
-
+    public boolean ifAdopted( String name){
+        petsInShelter.remove(name);
+        return false;
     }
 
-    public String adoptPetFromShelter() {
+    public Virtualpet returnPet(String petName) {
+        return petsInShelter.get(petName);
+    }
 
-        int userInput = input.nextInt();
-        if (userInput == 1) {
+    public void getPet(Virtualpet pet) {
+        String usersChoice = pet.getPetName();
+        petsInShelter.put(usersChoice, pet);
+    }
 
-            System.out.println("You have adopted " + petsUpForAdoption.get(0)+ petsUpForAdoption.remove(0));
-            // a.petName = petsUpForAdoption.get(0);
-
-
-        } else if (userInput == 2) {
-
-            System.out.println("You have adopted " + petsUpForAdoption.get(1) +  petsUpForAdoption.remove(1));
-            // a.petName = petsUpForAdoption.get(1);
-
-
-        } else if (userInput == 3) {
-            petsUpForAdoption.remove(2);
-            System.out.println("You have adopted " + petsUpForAdoption.get(2) +  petsUpForAdoption.remove(2));
-            //  a.petName = petsUpForAdoption.get(2);
-
-
+    public void feedPets() {
+        for (Virtualpet pets : petsInShelter.values()) {
+            pets.feedPet();
         }
-        return adoptPetFromShelter();
     }
 
-    public String admitPetIntoShelter() {
-        Virtualpet a = new Virtualpet();
-        System.out.println(" Enter The number of the pet to return it to the shelter");
-        int userInput = input.nextInt();
-        if (userInput == 1) {
-            petsUpForAdoption.add("1.Garfield The Cat");
-            System.out.println("You have admitted " + petsUpForAdoption.get(0) + " Back to the shelter");
-            System.out.println("here are the remaining pets in the shelter " + petsUpForAdoption);
-            System.exit(0);
-        } else if (userInput == 2) {
-            petsUpForAdoption.add("2.Scooby doo The Dog");
-            System.out.println("You have admitted " + petsUpForAdoption.get(1) + " Back to the shelter");
-            System.out.println("here are the remaining pets in the shelter " + petsUpForAdoption);
-
-            System.exit(0);
-        } else if (userInput == 3) {
-            petsUpForAdoption.add("3.Nemo The Fish");
-            System.out.println("You have admitted " + petsUpForAdoption.get(2) + " Back to the shelter");
-            System.out.println("here are the remaining pets in the shelter " + petsUpForAdoption);
-            System.exit(0);
+    public void waterPets() {
+        for (Virtualpet pets : petsInShelter.values()) {
+            pets.waterPet();
         }
-        return admitPetIntoShelter();
+
+
     }
+
+    public void playWithPets() {
+        for (Virtualpet pets : petsInShelter.values()) {
+            pets.playWithPet();
+        }
+
+    }
+    public String allPetStats(){
+        String petStats= "";
+        for (Map.Entry<String, Virtualpet> pets : petsInShelter.entrySet()){
+            petStats += pets.getValue().getPetName() +  pets.getValue().getHunger() + pets.getValue().getThirst() + pets.getValue().getBordom();
+        }
+        return  petStats;
+    }
+    public String userChoice(){
+        String userChoice = "";
+        for (Map.Entry<String,Virtualpet> pets : petsInShelter.entrySet()){
+            userChoice += pets.getValue().getPetName() + " ";
+        }
+        return userChoice;
+    }
+    public boolean petCheck(String name) {
+        return petsInShelter.containsKey(name);
+    }
+
 }
 
 
