@@ -32,23 +32,59 @@ public class VirtualPetShelter {
         petsInShelter.put(usersChoice, pet);
     }
 
-    public void feedPets() {
+    public void feedOrganicPets() {
         for (Virtualpet pets : petsInShelter.values()) {
-            pets.feedPet();
+            if (pets instanceof OraganicPet){
+                OraganicPet organic = (OraganicPet) pets;
+                organic.feedPet();
+            }
         }
     }
 
-    public void waterPets() {
+    public void waterOrganicPets() {
         for (Virtualpet pets : petsInShelter.values()) {
-            pets.waterPet();
+           if (pets instanceof  OraganicPet){
+               OraganicPet oraganic = (OraganicPet) pets;
+               oraganic.waterPet();
+           }
         }
 
 
     }
 
-    public void playWithPets() {
+    public void playWithOrganicPets() {
         for (Virtualpet pets : petsInShelter.values()) {
-            pets.playWithPet();
+            if (pets instanceof  OraganicPet){
+                OraganicPet oraganic = (OraganicPet) pets;
+                oraganic.playWithPet();
+            }
+        }
+
+    }
+    public void playWithRoboticPets() {
+        for (Virtualpet pets : petsInShelter.values()) {
+            if (pets instanceof  RoboticPet){
+                RoboticPet Robotic = (RoboticPet) pets;
+                Robotic.playWithRoboticPet();
+            }
+        }
+
+    }
+    public void chargeRoboticPets() {
+        for (Virtualpet pets : petsInShelter.values()) {
+            if (pets instanceof  RoboticPet){
+                RoboticPet Robotic = (RoboticPet) pets;
+                Robotic.chargePet();
+            }
+        }
+
+    }
+    public void OilRoboticPets() {
+        for (Virtualpet pets : petsInShelter.values()) {
+            if (pets instanceof  RoboticPet){
+                RoboticPet Robotic = (RoboticPet) pets;
+                Robotic.OilPet();
+            }
         }
 
     }
