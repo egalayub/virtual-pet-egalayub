@@ -1,50 +1,53 @@
 package virtual_pet;
 
 public class RoboticPet extends Virtualpet {
-    public int petChargeLevel;
-    public int  petOil;
-    public int boredom;
+    public int petMaintenance = 50;
+    public int  petOil= 75;
+    public int boredom = 75;
 
 
 
     public RoboticPet(String petName, String petType) {
         super(petName, petType);
     }
+    public String getRoboticPetName() {
+        return petName;
+    }
     public void playWithRoboticPet(){
-        if (boredom < 0){
-            boredom = 0;
+        if (this.boredom < 0){
+           this.boredom = 0;
         }
         this.boredom -= 15;
-        this.petChargeLevel+= 10;
+        this.petMaintenance+= 10;
     }
     public void OilPet(){
-        if (petOil < 0 ){
-            petOil =0;
+        if (this.petOil < 0 ){
+            this.petOil =0;
         }
         this.petOil-= 15;
 
     }
-  public void chargePet(){
-        if (petChargeLevel <0){
-            petChargeLevel = 0;
+  public void maintainPet(){
+        if (this.petMaintenance <0){
+            this.petMaintenance = 0;
         }
-        this.petChargeLevel-=15;
+        this.petMaintenance-=15;
   }
 
 
     public String getRoboticPetBoredom() {
 
-        return "boredom: " + boredom;
+        return " boredom: " + boredom;
     }
 
 
     public String getPetOil() {
 
-        return "Oil Level: " + petOil;
+        return " Oil Level: " + petOil;
     }
 
-    public String getPetCharge() {
+    public String getPetMaintenance() {
 
-        return "Battery Level : " + petChargeLevel;
+        return " Maintenance Level: " + petMaintenance;
     }
 }

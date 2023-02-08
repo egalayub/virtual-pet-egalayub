@@ -1,8 +1,5 @@
 package virtual_pet;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class Virtualpet {
 
     public String petName;
@@ -12,6 +9,8 @@ public class Virtualpet {
         this.petName = petName;
         this.petType = petType;
     }
+
+
 
 }
 

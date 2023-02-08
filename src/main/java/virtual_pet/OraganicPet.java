@@ -1,57 +1,63 @@
 package virtual_pet;
 
 public class OraganicPet extends Virtualpet {
-    public int hunger;
-    public int thirst;
-    public int boredom;
-    public int litterBox;
+    public int hunger = 50;
+    public int thirst = 50;
+    public int boredom = 50;
+
+
     public OraganicPet(String petName, String petType) {
         super(petName, petType);
     }
-    public void playWithPet(){
-        if (boredom < 0){
-            boredom = 0;
-        }
+
+
+
+
+    public void playWithPet() {
         this.boredom -= 15;
-        this.hunger+= 5;
-    }
-    public void feedPet(){
-        if (hunger< 0){
-            hunger= 0;
+        this.hunger += 5;
+        if (this.boredom <=0) {
+            this.boredom = 0;
         }
-        this.hunger-= 15;
+
+    }
+
+    public void feedPet() {
+        this.hunger -= 15;
         this.thirst += 5;
-    }
-    public void waterPet(){
-        if (thirst< 0){
-            thirst =0;
+        if (this.hunger <= 0) {
+            this.hunger = 0;
         }
+
+    }
+
+    public void waterPet() {
         this.boredom -= 15;
         this.thirst += 5;
+        if (this.thirst <=0) {
+            this.thirst = 0;
+        }
+
     }
+
     public String getPetName() {
         return petName;
     }
 
     public String getHunger() {
 
-        return " Hunger: " + hunger  + " ";
+        return " Hunger: " + hunger + " ";
     }
 
 
     public String getThirst() {
 
-        return "Thirst: " +thirst  + " ";
+        return "Thirst: " + thirst + " ";
     }
 
     public String getBordom() {
 
         return "Boredom: " + boredom + " ";
     }
-    public void cleanLitterBox(){
-        this.litterBox -= 50;
-    }
-    public  String getLitterBox (){
-        return "Litter box: " + litterBox;
-    }
+
 }
