@@ -1,7 +1,7 @@
 package virtual_pet;
 
 public class OrganicDog extends OraganicPet{
-    public int dogCage;
+    public int dogCage = 65;
     public int walkOrganicDog = 50;
     public OrganicDog(String petName, String petType) {
         super(petName, petType);
@@ -15,6 +15,9 @@ public class OrganicDog extends OraganicPet{
         this.dogCage -= 50;
     }
     public String getDogCage(){
-        return " Dog cage Cleanliness" + dogCage;
+        return "Dog Cage: " + dogCage;
+    }
+    public void OrganicDogTick(){
+        this.dogCage += 10;
     }
 }

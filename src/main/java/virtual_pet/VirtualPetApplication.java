@@ -24,8 +24,9 @@ public class VirtualPetApplication {
             System.out.println("Welcome to the Virtual Pet Shelter!");
             System.out.println("Here are the pets in our Shelter");
             System.out.println("Organic Pets: " + pet.OrganicPetStats());
-
-            System.out.println("Robotic Pets: "+pet.RoboticPetStats());
+            System.out.println(pet.getDogCageStats());
+            System.out.println(pet.getLitterBoxStats());
+            System.out.println("Robotic Pets: " + pet.RoboticPetStats());
             System.out.println("What Would you like to do with the pets? ");
             System.out.println("1.Feed all Organic pets");
             System.out.println("2.Water all Organic Pets");
@@ -80,9 +81,10 @@ public class VirtualPetApplication {
 
 
             }
-            }
+            pet.tickallpets();
         }
     }
+}
        /* Scanner input = new Scanner(System.in);
 
         VirtualPetShelter b = new VirtualPetShelter();

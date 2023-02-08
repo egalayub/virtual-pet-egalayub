@@ -60,4 +60,5 @@ public class OraganicPet extends Virtualpet {
         return "Boredom: " + boredom + " ";
     }
 
+
 }

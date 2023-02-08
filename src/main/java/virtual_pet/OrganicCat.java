@@ -18,5 +18,8 @@ public class OrganicCat extends OraganicPet{
 
         return "Litter box: " + litterBox;
     }
+    public void OrganicCatTick(){
+        this.litterBox += 10;
+    }
 }
 

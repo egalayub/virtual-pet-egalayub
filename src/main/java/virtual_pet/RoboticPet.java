@@ -50,4 +50,9 @@ public class RoboticPet extends Virtualpet {
 
         return " Maintenance Level: " + petMaintenance;
     }
+    public void tickRoboticPets(){
+        this.petOil += 10;
+        this.petMaintenance +=10;
+        this.boredom += 10;
+    }
 }
