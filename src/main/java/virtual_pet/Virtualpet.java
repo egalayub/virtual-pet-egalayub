@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class Virtualpet {
+public class  Virtualpet implements Pets {
 
     public String petName;
     public String petType;
@@ -11,6 +11,9 @@ public class Virtualpet {
     }
 
 
+@Override
+    public void walkOrganicPet() {
 
+    }
 }
 

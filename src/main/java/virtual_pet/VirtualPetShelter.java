@@ -10,51 +10,36 @@ public class VirtualPetShelter {
 
     public Collection<RoboticPet> getAllRoboticPets() {
         return roboticPetsInShelter.values();
-
     }
 
     public Collection<OraganicPet> getAllOrganicPets() {
         return organicPetsInShelter.values();
-
     }
 
 
-    public void adoptOrganicDog(OrganicDog a) {
+    public void adoptOrganicPet(OraganicPet a) {
         organicPetsInShelter.put(a.getPetName(), a);
-
     }
 
-    public void adoptOrganicCat(OrganicCat a) {
-        organicPetsInShelter.put(a.getPetName(), a);
 
-    }
 
-    public void adoptRoboticDog(RoboticDog a) {
+    public void adoptRoboticPet(RoboticPet a) {
         roboticPetsInShelter.put(a.getRoboticPetName(), a);
-
     }
 
-    public void adoptRoboticCat(RoboticCat a) {
-        roboticPetsInShelter.put(a.getRoboticPetName(), a);
 
-    }
-
-    public boolean ifAdopted(String name) {
-
+    public void ifAdopted() {
+        String name = "";
         organicPetsInShelter.remove(name);
-        return false;
     }
 
-    public Virtualpet returnPet(String petName) {
-        return organicPetsInShelter.get(petName);
-    }
 
-    public void getOrganicPet(OraganicPet pet) {
+    public void putOrganicPet(OraganicPet pet) {
         String usersChoice = pet.getPetName();
         organicPetsInShelter.put(usersChoice, pet);
     }
 
-    public void getRoboticPet(RoboticPet pet) {
+    public void putRoboticPet(RoboticPet pet) {
         String usersChoice = pet.getRoboticPetName();
         roboticPetsInShelter.put(usersChoice, pet);
     }
@@ -68,7 +53,6 @@ public class VirtualPetShelter {
 
     public void waterOrganicPets() {
         for (OraganicPet pets : organicPetsInShelter.values()) {
-
             OraganicPet oraganic = (OraganicPet) pets;
             oraganic.waterPet();
         }
@@ -87,7 +71,6 @@ public class VirtualPetShelter {
 
     public void playWithRoboticPets() {
         for (RoboticPet pets : roboticPetsInShelter.values()) {
-
             RoboticPet Robotic = (RoboticPet) pets;
             Robotic.playWithRoboticPet();
         }
@@ -95,51 +78,41 @@ public class VirtualPetShelter {
 
     public void MaintainRoboticPets() {
         for (RoboticPet pets : roboticPetsInShelter.values()) {
-            if (pets instanceof RoboticPet) {
                 RoboticPet Robotic = (RoboticPet) pets;
                 Robotic.maintainPet();
-            }
+
         }
 
     }
 
     public void OilRoboticPets() {
         for (RoboticPet pets : roboticPetsInShelter.values()) {
-            if (pets instanceof RoboticPet) {
                 RoboticPet Robotic = (RoboticPet) pets;
                 Robotic.OilPet();
-            }
         }
 
     }
 
     public void walkOrganicPets() {
         for (OraganicPet pets : organicPetsInShelter.values()) {
-            if (pets instanceof OrganicDog) {
                 OrganicDog OrganicDog = (OrganicDog) pets;
                 OrganicDog.WalkOrganicDog();
-            } else if (pets instanceof OrganicCat) {
                 OrganicCat organicCat = (OrganicCat) pets;
                 organicCat.WalkOrganicCat();
             }
         }
-    }
 
     public void cleanLitterBoxes() {
         for (OraganicPet pets : organicPetsInShelter.values()) {
-            if (pets instanceof OrganicCat) {
                 OrganicCat organicCat = (OrganicCat) pets;
                 organicCat.cleanLitterBox();
-            }
         }
     }
 
     public void cleanDogCages() {
         for (OraganicPet pets : organicPetsInShelter.values()) {
-            if (pets instanceof OrganicDog) {
                 OrganicDog organicDog = (OrganicDog) pets;
                 organicDog.cleanDogCage();
-            }
         }
     }
 
@@ -153,10 +126,9 @@ public class VirtualPetShelter {
     public String getDogCageStats() {
         String dogCageStats = "";
         for (OraganicPet pets : organicPetsInShelter.values()) {
-            if (pets instanceof OrganicDog) {
                 OrganicDog organicDog = (OrganicDog) pets;
                dogCageStats = organicDog.getDogCage();
-            }
+
         }
         return dogCageStats;
     }
@@ -165,11 +137,10 @@ public class VirtualPetShelter {
     public String getLitterBoxStats() {
         String OrganicCatLitterBox = "";
         for (OraganicPet pets : organicPetsInShelter.values()) {
-            if (pets instanceof OrganicCat) {
                 OrganicCat organicCat = (OrganicCat) pets;
               OrganicCatLitterBox +=  organicCat.getLitterBox();
             }
-        }
+
         return OrganicCatLitterBox;
     }
 
@@ -185,7 +156,7 @@ public class VirtualPetShelter {
 
 
 
-    public String userAdmitsOrganicPet() {
+    public String userAdmitsOrganicPet(OraganicPet oraganicPet) {
         String userChoice = "";
         for (Map.Entry<String, OraganicPet> pets : organicPetsInShelter.entrySet()) {
             userChoice += pets.getValue() + " ";
@@ -193,7 +164,7 @@ public class VirtualPetShelter {
         return userChoice;
     }
 
-    public String userAdmitsRoboticPet() {
+    public String userAdmitsRoboticPet(RoboticPet roboticPet) {
         String userChoice = "";
         for (Map.Entry<String, RoboticPet> pets : roboticPetsInShelter.entrySet()) {
             userChoice += pets.getValue() + " ";
@@ -217,17 +188,17 @@ public class VirtualPetShelter {
         }
         return userChoice;
     }
-    public void tickallpets(){
+    public void tickOrganicpets(){
         for (OraganicPet pets : organicPetsInShelter.values()){
-            if (pets instanceof OrganicDog){
+
                 OrganicDog organicDog = (OrganicDog) pets;
                 organicDog.OrganicDogTick();
-            } else if (pets instanceof OrganicCat) {
                 OrganicCat organicCat = (OrganicCat) pets;
                 organicCat.OrganicCatTick();
             }
         }
-        for (RoboticPet pets : roboticPetsInShelter.values()){
+        public void tickRoboticPets(){
+        for (RoboticPet pets : roboticPetsInShelter.values() ){
            RoboticPet roboticPet = (RoboticPet) pets;
            roboticPet.tickRoboticPets();
         }

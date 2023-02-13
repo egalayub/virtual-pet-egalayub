@@ -11,15 +11,11 @@ public class VirtualPetApplication {
         OrganicDog dog1 = new OrganicDog("Scooby Doo The Dog", "Organic");
         RoboticDog dog2 = new RoboticDog("Robot Dog", "Robotic");
         RoboticCat cat2 = new RoboticCat("Robot Cat", "Robotic");
-        pet.adoptOrganicCat(cat1);
-        pet.adoptOrganicDog(dog1);
-        pet.adoptRoboticDog(dog2);
-        pet.adoptRoboticCat(cat2);
-
-
+        pet.adoptOrganicPet(cat1);
+        pet.adoptOrganicPet(dog1);
+        pet.adoptRoboticPet(dog2);
+        pet.adoptRoboticPet(cat2);
         Scanner input = new Scanner(System.in);
-        int select = 1;
-
         while (true) {
             System.out.println("Welcome to the Virtual Pet Shelter!");
             System.out.println("Here are the pets in our Shelter");
@@ -52,7 +48,6 @@ public class VirtualPetApplication {
                 System.out.println("You Played with all  the pets");
             } else if (userInput == 4) {
                 pet.walkOrganicPets();
-
                 System.out.println("You Walked all the pets");
             } else if (userInput == 5) {
                 pet.cleanLitterBoxes();
@@ -71,17 +66,17 @@ public class VirtualPetApplication {
                 System.out.println(pet.userAdoptsOrganicPet());
                 System.out.println(pet.userAdoptsRoboticPet());
                 String adoptedPet = input.next();
-                pet.ifAdopted(adoptedPet);
+                pet.ifAdopted();
                 System.out.println("You have adopted" + adoptedPet);
             } else if (userInput == 10) {
                 System.out.println("What is the name of the pet you want to admit to the shelter");
-
+                String admitPet = input.next();
+                System.out.println("You have removed" + admitPet);
             } else if (userInput == 0) {
                 System.exit(0);
-
-
             }
-            pet.tickallpets();
+            pet.tickOrganicpets();
+            pet.tickRoboticPets();
         }
     }
 }

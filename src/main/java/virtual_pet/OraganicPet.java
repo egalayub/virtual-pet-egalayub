@@ -10,8 +10,10 @@ public class OraganicPet extends Virtualpet {
         super(petName, petType);
     }
 
-
-
+    @Override
+    public void walkOrganicPet() {
+        super.walkOrganicPet();
+    }
 
     public void playWithPet() {
         this.boredom -= 15;
